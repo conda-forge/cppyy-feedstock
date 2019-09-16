@@ -8,8 +8,6 @@ package:
 source:
   url: https://pypi.io/packages/source/c/cppyy/cppyy-{{ version   }}.tar.gz
   sha256: 9d5826b1c7cd2ced7caf773ca23a6f044cccc5c2709459dc1654cda04463475c
-  patches:
-  - manylinux.patch
 
 build:
   number: 0
