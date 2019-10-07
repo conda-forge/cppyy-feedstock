@@ -1,0 +1,152 @@
+From a299ac472c01e8b3e1ffd99ae5594eb98b71d8bf Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Julian=20R=C3=BCth?= <julian.rueth@fsfe.org>
+Date: Mon, 7 Oct 2019 13:17:25 +0200
+Subject: [PATCH] simplify setup.py
+
+---
+ setup.py | 113 +------------------------------------------------------
+ 1 file changed, 1 insertion(+), 112 deletions(-)
+
+diff --git a/setup.py b/setup.py
+index a2d2055..2294285 100755
+--- a/setup.py
++++ b/setup.py
+@@ -1,39 +1,5 @@
+ import codecs, glob, os, sys, re
+ from setuptools import setup, find_packages, Extension
+-from distutils import log
+-
+-from setuptools.dist import Distribution
+-from setuptools.command.install import install as _install
+-
+-force_bdist = False
+-if '--force-bdist' in sys.argv:
+-    force_bdist = True
+-    sys.argv.remove('--force-bdist')
+-
+-add_pkg = ['cppyy']
+-try:
+-    import __pypy__, sys
+-    version = sys.pypy_version_info
+-    requirements = ['cppyy-backend']
+-    if version[0] == 5:
+-        if version[1] <= 9:
+-            requirements = ['cppyy-cling<6.12', 'cppyy-backend<0.3']
+-            add_pkg += ['cppyy_compat']
+-        elif version[1] <= 10:
+-            requirements = ['cppyy-cling<=6.15', 'cppyy-backend<0.4']
+-    elif version[0] == 6:
+-        if version[1] <= 0:
+-            requirements = ['cppyy-cling<=6.15', 'cppyy-backend<1.1']
+-    elif version[0] == 7:
+-        if version[1] <= 1:
+-            requirements = ['cppyy-cling<=6.18.2.3', 'cppyy-backend<=1.10']
+-except ImportError:
+-    # CPython
+-    requirements = ['cppyy-cling==6.18.2.3', 'cppyy-backend==1.10.4', 'CPyCppyy==1.9.4']
+-
+-setup_requirements = ['wheel']
+-if 'build' in sys.argv or 'install' in sys.argv:
+-    setup_requirements += requirements
+ 
+ here = os.path.abspath(os.path.dirname(__file__))
+ with codecs.open(os.path.join(here, 'README.rst'), encoding='utf-8') as f:
+@@ -52,77 +18,6 @@ def find_version(*file_paths):
+         return version_match.group(1)
+     raise RuntimeError("Unable to find version string.")
+ 
+-
+-#
+-# platform-dependent helpers
+-#
+-def is_manylinux():
+-    try:
+-       for line in open('/etc/redhat-release').readlines():
+-           if 'CentOS release 6.10 (Final)' in line:
+-               return True
+-    except (OSError, IOError):
+-        pass
+-    return False
+-
+-
+-#
+-# customized commands
+-#
+-class my_install(_install):
+-    def run(self):
+-        # base install
+-        _install.run(self)
+-
+-        # force build of the .pch underneath the cppyy package if not available yet
+-        install_path = os.path.join(os.getcwd(), self.install_libbase, 'cppyy')
+-
+-        try:
+-            import cppyy_backend as cpb
+-            if not os.path.exists(os.path.join(cpb.__file__, 'etc', 'allDict.cxx.pch')):
+-                log.info("installing pre-compiled header in %s", install_path)
+-                cpb.loader.set_cling_compile_options(True)
+-                cpb.loader.ensure_precompiled_header(install_path, 'allDict.cxx.pch')
+-        except (ImportError, AttributeError):
+-            # ImportError may occur with wrong pip requirements resolution (unlikely)
+-            # AttributeError will occur with (older) PyPy as it relies on older backends
+-            pass
+-
+-    def get_outputs(self):
+-        outputs = _install.get_outputs(self)
+-        # pre-emptively add allDict.cxx.pch, which may or may not be created; need full
+-        # path to make sure the final relative path is correct
+-        outputs.append(os.path.join(os.getcwd(), self.install_libbase, 'cppyy', 'allDict.cxx.pch'))
+-        return outputs
+-
+-
+-cmdclass = {
+-        'install': my_install }
+-
+-
+-#
+-# customized distribition to disable binaries
+-#
+-class MyDistribution(Distribution):
+-    def run_commands(self):
+-        # pip does not resolve dependencies before building binaries, so unless
+-        # packages are installed one-by-one, on old install is used or the build
+-        # will simply fail hard. The following is not completely quiet, but at
+-        # least a lot less conspicuous.
+-        if not is_manylinux() and not force_bdist:
+-            disabled = set((
+-                'bdist_wheel', 'bdist_egg', 'bdist_wininst', 'bdist_rpm'))
+-            for cmd in self.commands:
+-                if not cmd in disabled:
+-                    self.run_command(cmd)
+-                else:
+-                    log.info('Command "%s" is disabled', cmd)
+-                    cmd_obj = self.get_command_obj(cmd)
+-                    cmd_obj.get_outputs = lambda: None
+-        else:
+-            return Distribution.run_commands(self)
+-
+-
+ setup(
+     name='cppyy',
+     version=find_version('python', 'cppyy', '_version.py'),
+@@ -159,16 +54,10 @@ setup(
+         'Natural Language :: English'
+     ],
+ 
+-    setup_requires=setup_requirements,
+-    install_requires=requirements,
+-
+     keywords='C++ bindings data science calling language integration',
+ 
+     package_dir={'': 'python'},
+-    packages=find_packages('python', include=add_pkg),
+-
+-    cmdclass=cmdclass,
+-    distclass=MyDistribution,
++    packages=find_packages('python', include=['cppyy']),
+ 
+     zip_safe=False,
+ )
+-- 
+2.23.0
+
