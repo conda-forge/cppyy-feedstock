@@ -12,7 +12,7 @@ source:
     - 0001-dumb-setup.py.patch
 
 build:
-  number: 0
+  number: 1
   skip: True  # [win]
   script: "{{ PYTHON }} -m pip install . --no-deps -vv"
   detect_binary_files_with_prefix: False
@@ -30,10 +30,13 @@ requirements:
     - cppyy-cling ==6.18.2.3
 
 test:
+  requires:
+    - gmp
   imports:
     - cppyy
   commands:
     - $PYTHON -c 'import cppyy;V = cppyy.gbl.std.vector[int]();V.push_back(1)'
+    - $PYTHON -c 'import cppyy;cppyy.load_library("gmp")'
 
 about:
   home: https://pypi.org/project/cppyy/
