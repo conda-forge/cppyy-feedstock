@@ -10,9 +10,10 @@ source:
   sha256: b42b7c726830ae796df02b1047ac1864f3e6ffe0b16432eb922274a8996710d0
   patches:
     - 0001-dumb-setup.py.patch
+    - 0002-search-conda-prefix.patch
 
 build:
-  number: 0
+  number: 1
   skip: True  # [win]
   script: "{{ PYTHON }} -m pip install . --no-deps -vv"
   detect_binary_files_with_prefix: False
@@ -30,10 +31,14 @@ requirements:
     - cppyy-cling ==6.18.2.3
 
 test:
+  requires:
+    - gmp
   imports:
     - cppyy
   commands:
     - $PYTHON -c 'import cppyy;V = cppyy.gbl.std.vector[int]();V.push_back(1)'
+    - $PYTHON -c 'import cppyy;cppyy.load_library("gmp")'
+    - $PYTHON -c 'import cppyy;cppyy.include("gmp.h")'
 
 about:
   home: https://pypi.org/project/cppyy/
