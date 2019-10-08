@@ -13,7 +13,7 @@ source:
     - 0002-search-conda-prefix.patch
 
 build:
-  number: 1
+  number: 2
   skip: True  # [win]
   script: "{{ PYTHON }} -m pip install . --no-deps -vv"
   detect_binary_files_with_prefix: False
