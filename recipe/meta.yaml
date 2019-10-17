@@ -10,7 +10,6 @@ source:
   sha256: c0f4a7af16593399a1320877e0980f3628c968c1658d7c171468842b132868dd
   patches:
     - 0001-dumb-setup.py.patch
-    - 0002-search-conda-prefix.patch
 
 build:
   number: 0
