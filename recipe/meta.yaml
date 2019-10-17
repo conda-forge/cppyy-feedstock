@@ -1,5 +1,5 @@
 {% set name = "cppyy" %}
-{% set version = "1.5.4" %}
+{% set version = "1.5.5" %}
 
 package:
   name: {{ name  }}
@@ -7,13 +7,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/c/cppyy/cppyy-{{ version   }}.tar.gz
-  sha256: b42b7c726830ae796df02b1047ac1864f3e6ffe0b16432eb922274a8996710d0
+  sha256: c0f4a7af16593399a1320877e0980f3628c968c1658d7c171468842b132868dd
   patches:
     - 0001-dumb-setup.py.patch
-    - 0002-search-conda-prefix.patch
 
 build:
-  number: 2
+  number: 0
   skip: True  # [win]
   script: "{{ PYTHON }} -m pip install . --no-deps -vv"
   detect_binary_files_with_prefix: False
@@ -24,11 +23,11 @@ requirements:
   host:
     - python
     - pip
-    - cppyy-backend ==1.10.4
+    - cppyy-backend ==1.10.5
   run:
     - python
-    - cpycppyy ==1.9.4
-    - cppyy-cling ==6.18.2.3
+    - cpycppyy ==1.9.5
+    - cppyy-cling ==6.18.2.4
 
 test:
   requires:
