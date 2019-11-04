@@ -23,11 +23,11 @@ requirements:
   host:
     - python
     - pip
-    - cppyy-backend ==1.10.5
+    - cppyy-backend ==1.10.6
   run:
     - python
-    - cpycppyy ==1.9.5
-    - cppyy-cling ==6.18.2.4
+    - cpycppyy ==1.9.6
+    - cppyy-cling ==6.18.2.5
 
 test:
   requires:
