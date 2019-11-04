@@ -1,5 +1,5 @@
 {% set name = "cppyy" %}
-{% set version = "1.5.5" %}
+{% set version = "1.5.6" %}
 
 package:
   name: {{ name  }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/c/cppyy/cppyy-{{ version   }}.tar.gz
-  sha256: c0f4a7af16593399a1320877e0980f3628c968c1658d7c171468842b132868dd
+  sha256: a76b1952a0946a7101ca0e62625db6fcd4ac6c90d6c5f8c9c5e5080689a5904b
   patches:
     - 0001-dumb-setup.py.patch
 
