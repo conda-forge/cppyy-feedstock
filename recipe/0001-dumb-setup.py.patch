@@ -1,14 +1,14 @@
-From a299ac472c01e8b3e1ffd99ae5594eb98b71d8bf Mon Sep 17 00:00:00 2001
+From cd5f845f77739677344786171444f1c605de3a86 Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?Julian=20R=C3=BCth?= <julian.rueth@fsfe.org>
-Date: Mon, 7 Oct 2019 13:17:25 +0200
-Subject: [PATCH] simplify setup.py
+Date: Sat, 16 Nov 2019 19:11:36 +0100
+Subject: [PATCH] dumb setup
 
 ---
  setup.py | 113 +------------------------------------------------------
  1 file changed, 1 insertion(+), 112 deletions(-)
 
 diff --git a/setup.py b/setup.py
-index a2d2055..2294285 100755
+index 63da976..2294285 100755
 --- a/setup.py
 +++ b/setup.py
 @@ -1,39 +1,5 @@
@@ -39,11 +39,11 @@ index a2d2055..2294285 100755
 -        if version[1] <= 0:
 -            requirements = ['cppyy-cling<=6.15', 'cppyy-backend<1.1']
 -    elif version[0] == 7:
--        if version[1] <= 1:
+-        if version[1] <= 2:
 -            requirements = ['cppyy-cling<=6.18.2.3', 'cppyy-backend<=1.10']
 -except ImportError:
 -    # CPython
--    requirements = ['cppyy-cling==6.18.2.4', 'cppyy-backend==1.10.5', 'CPyCppyy==1.9.5']
+-    requirements = ['cppyy-cling==6.18.2.5', 'cppyy-backend==1.10.6', 'CPyCppyy==1.9.7']
 -
 -setup_requirements = ['wheel']
 -if 'build' in sys.argv or 'install' in sys.argv:
