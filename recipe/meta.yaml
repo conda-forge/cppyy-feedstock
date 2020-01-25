@@ -1,5 +1,5 @@
 {% set name = "cppyy" %}
-{% set version = "1.5.7" %}
+{% set version = "1.6.1" %}
 
 package:
   name: {{ name  }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/c/cppyy/cppyy-{{ version   }}.tar.gz
-  sha256: eaa7f2685d0b9268ee5d73257ba491b3d4c8ec71f554d4c634e3402d839df450
+  sha256: c5e98ef0e3ba33fc10b3e62b919939e37e7c1eeb83e892120ec6d8c3c0f88ea3
   patches:
     - 0001-dumb-setup.py.patch
 
@@ -23,11 +23,11 @@ requirements:
   host:
     - python
     - pip
-    - cppyy-backend ==1.10.6
+    - cppyy-backend ==1.10.7
   run:
     - python
-    - cpycppyy ==1.9.7
-    - cppyy-cling ==6.18.2.5
+    - cpycppyy ==1.10.1
+    - cppyy-cling ==6.18.2.6
 
 test:
   requires:
