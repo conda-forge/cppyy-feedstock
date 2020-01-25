@@ -1,17 +1,17 @@
-From cd5f845f77739677344786171444f1c605de3a86 Mon Sep 17 00:00:00 2001
+From 9da6eae0a6e7f99e1cc52d4f01f7e7154b0f436a Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?Julian=20R=C3=BCth?= <julian.rueth@fsfe.org>
-Date: Sat, 16 Nov 2019 19:11:36 +0100
+Date: Sat, 25 Jan 2020 14:57:14 +0100
 Subject: [PATCH] dumb setup
 
 ---
- setup.py | 113 +------------------------------------------------------
- 1 file changed, 1 insertion(+), 112 deletions(-)
+ setup.py | 115 +------------------------------------------------------
+ 1 file changed, 1 insertion(+), 114 deletions(-)
 
 diff --git a/setup.py b/setup.py
-index 63da976..2294285 100755
+index fe29926..2294285 100755
 --- a/setup.py
 +++ b/setup.py
-@@ -1,39 +1,5 @@
+@@ -1,41 +1,5 @@
  import codecs, glob, os, sys, re
  from setuptools import setup, find_packages, Extension
 -from distutils import log
@@ -41,9 +41,11 @@ index 63da976..2294285 100755
 -    elif version[0] == 7:
 -        if version[1] <= 2:
 -            requirements = ['cppyy-cling<=6.18.2.3', 'cppyy-backend<=1.10']
+-        else:
+-            requirements = ['cppyy-cling<=6.18.2.6', 'cppyy-backend<=1.10']
 -except ImportError:
 -    # CPython
--    requirements = ['cppyy-cling==6.18.2.5', 'cppyy-backend==1.10.6', 'CPyCppyy==1.9.7']
+-    requirements = ['cppyy-cling==6.18.2.6', 'cppyy-backend==1.10.7', 'CPyCppyy==1.10.1']
 -
 -setup_requirements = ['wheel']
 -if 'build' in sys.argv or 'install' in sys.argv:
@@ -51,7 +53,7 @@ index 63da976..2294285 100755
  
  here = os.path.abspath(os.path.dirname(__file__))
  with codecs.open(os.path.join(here, 'README.rst'), encoding='utf-8') as f:
-@@ -52,77 +18,6 @@ def find_version(*file_paths):
+@@ -54,77 +18,6 @@ def find_version(*file_paths):
          return version_match.group(1)
      raise RuntimeError("Unable to find version string.")
  
@@ -129,7 +131,7 @@ index 63da976..2294285 100755
  setup(
      name='cppyy',
      version=find_version('python', 'cppyy', '_version.py'),
-@@ -159,16 +54,10 @@ setup(
+@@ -161,16 +54,10 @@ setup(
          'Natural Language :: English'
      ],
  
@@ -148,5 +150,5 @@ index 63da976..2294285 100755
      zip_safe=False,
  )
 -- 
-2.23.0
+2.25.0
 
