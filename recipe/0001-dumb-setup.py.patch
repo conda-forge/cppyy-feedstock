@@ -1,6 +1,6 @@
-From 9da6eae0a6e7f99e1cc52d4f01f7e7154b0f436a Mon Sep 17 00:00:00 2001
+From 4a491cbe4255d3796c63cd479e66dcccba8aabf8 Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?Julian=20R=C3=BCth?= <julian.rueth@fsfe.org>
-Date: Sat, 25 Jan 2020 14:57:14 +0100
+Date: Mon, 30 Mar 2020 21:35:11 +0200
 Subject: [PATCH] dumb setup
 
 ---
@@ -8,10 +8,10 @@ Subject: [PATCH] dumb setup
  1 file changed, 1 insertion(+), 114 deletions(-)
 
 diff --git a/setup.py b/setup.py
-index fe29926..2294285 100755
+index df5fa6f..5bad758 100755
 --- a/setup.py
 +++ b/setup.py
-@@ -1,41 +1,5 @@
+@@ -1,42 +1,5 @@
  import codecs, glob, os, sys, re
  from setuptools import setup, find_packages, Extension
 -from distutils import log
@@ -42,22 +42,22 @@ index fe29926..2294285 100755
 -        if version[1] <= 2:
 -            requirements = ['cppyy-cling<=6.18.2.3', 'cppyy-backend<=1.10']
 -        else:
--            requirements = ['cppyy-cling<=6.18.2.6', 'cppyy-backend<=1.10']
+-            requirements = ['cppyy-cling<=6.18.2.7', 'cppyy-backend<=1.10']
 -except ImportError:
 -    # CPython
--    requirements = ['cppyy-cling==6.18.2.6', 'cppyy-backend==1.10.7', 'CPyCppyy==1.10.1']
+-    requirements = ['cppyy-cling==6.18.2.7', 'cppyy-backend==1.10.8', 'CPyCppyy==1.10.2']
 -
 -setup_requirements = ['wheel']
 -if 'build' in sys.argv or 'install' in sys.argv:
 -    setup_requirements += requirements
- 
+-
  here = os.path.abspath(os.path.dirname(__file__))
  with codecs.open(os.path.join(here, 'README.rst'), encoding='utf-8') as f:
-@@ -54,77 +18,6 @@ def find_version(*file_paths):
-         return version_match.group(1)
+     long_description = f.read()
+@@ -55,76 +18,6 @@ def find_version(*file_paths):
      raise RuntimeError("Unable to find version string.")
  
--
+ 
 -#
 -# platform-dependent helpers
 -#
@@ -150,5 +150,5 @@ index fe29926..2294285 100755
      zip_safe=False,
  )
 -- 
-2.25.0
+2.25.2
 
