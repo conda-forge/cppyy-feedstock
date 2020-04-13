@@ -27,6 +27,7 @@ requirements:
   run:
     - python
     - cpycppyy ==1.10.2   # [python_impl=="cpython"]
+    - cppyy-backend ==1.10.8
     - cppyy-cling ==6.18.2.7
 
 test:
