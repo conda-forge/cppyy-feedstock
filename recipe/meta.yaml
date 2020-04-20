@@ -10,9 +10,10 @@ source:
   sha256: d6d9090f9b1c8272f58b59b9d4098e3100b4c8f8386e1f98e80ef33d54acf912
   patches:
     - 0001-dumb-setup.py.patch
+    - add_default_paths_on_pypy.diff
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win]
   script: {{ PYTHON }} -m pip install . --no-deps -vv
   detect_binary_files_with_prefix: false
@@ -26,7 +27,8 @@ requirements:
     - cppyy-backend ==1.10.8
   run:
     - python
-    - cpycppyy ==1.10.2
+    - cpycppyy ==1.10.2   # [python_impl=="cpython"]
+    - cppyy-backend ==1.10.8
     - cppyy-cling ==6.18.2.7
 
 test:
