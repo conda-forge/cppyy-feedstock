@@ -18,7 +18,7 @@ index 991fee8..961ea5d 100644
 +        lib_path = os.path.join(os.getenv('CONDA_PREFIX'), 'Library', 'lib')
 +        if os.path.exists(lib_path): gSystem.AddDynamicPath(lib_path)
 +
-+    if not is_pypy:
++    if not ispypy:
 +        # assuming that we are in PREFIX/lib/python/site-packages/cppyy, add PREFIX/lib to the search path
 +        lib_path = os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardir, os.path.pardir, os.path.pardir))
 +        if os.path.exists(lib_path): gSystem.AddDynamicPath(lib_path)
