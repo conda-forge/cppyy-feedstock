@@ -10,6 +10,7 @@ source:
   sha256: d6d9090f9b1c8272f58b59b9d4098e3100b4c8f8386e1f98e80ef33d54acf912
   patches:
     - 0001-dumb-setup.py.patch
+    - add_default_paths_on_pypy.diff
 
 build:
   number: 1
