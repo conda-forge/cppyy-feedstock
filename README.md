@@ -5,7 +5,7 @@ Home: https://pypi.org/project/cppyy/
 
 Package license: BSD-3-Clause
 
-Feedstock license: BSD 3-Clause
+Feedstock license: BSD-3-Clause
 
 Summary: Python-C++ bindings interface based on Cling/LLVM
 
@@ -32,59 +32,59 @@ Current build status
         <table>
           <thead><tr><th>Variant</th><th>Status</th></tr></thead>
           <tbody><tr>
-              <td>linux_python3.6.____73_pypypython_implpypy</td>
+              <td>linux_3.6_73_pypy</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7061&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/cppyy-feedstock?branchName=master&jobName=linux&configuration=linux_python3.6.____73_pypypython_implpypy" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/cppyy-feedstock?branchName=master&jobName=linux&configuration=linux_3.6_73_pypy" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_python3.6.____cpythonpython_implcpython</td>
+              <td>linux_3.6_cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7061&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/cppyy-feedstock?branchName=master&jobName=linux&configuration=linux_python3.6.____cpythonpython_implcpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/cppyy-feedstock?branchName=master&jobName=linux&configuration=linux_3.6_cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_python3.7.____cpythonpython_implcpython</td>
+              <td>linux_3.7_cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7061&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/cppyy-feedstock?branchName=master&jobName=linux&configuration=linux_python3.7.____cpythonpython_implcpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/cppyy-feedstock?branchName=master&jobName=linux&configuration=linux_3.7_cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_python3.8.____cpythonpython_implcpython</td>
+              <td>linux_3.8_cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7061&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/cppyy-feedstock?branchName=master&jobName=linux&configuration=linux_python3.8.____cpythonpython_implcpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/cppyy-feedstock?branchName=master&jobName=linux&configuration=linux_3.8_cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_python3.6.____73_pypypython_implpypy</td>
+              <td>osx_3.6_73_pypy</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7061&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/cppyy-feedstock?branchName=master&jobName=osx&configuration=osx_python3.6.____73_pypypython_implpypy" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/cppyy-feedstock?branchName=master&jobName=osx&configuration=osx_3.6_73_pypy" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_python3.6.____cpythonpython_implcpython</td>
+              <td>osx_3.6_cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7061&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/cppyy-feedstock?branchName=master&jobName=osx&configuration=osx_python3.6.____cpythonpython_implcpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/cppyy-feedstock?branchName=master&jobName=osx&configuration=osx_3.6_cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_python3.7.____cpythonpython_implcpython</td>
+              <td>osx_3.7_cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7061&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/cppyy-feedstock?branchName=master&jobName=osx&configuration=osx_python3.7.____cpythonpython_implcpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/cppyy-feedstock?branchName=master&jobName=osx&configuration=osx_3.7_cpython" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_python3.8.____cpythonpython_implcpython</td>
+              <td>osx_3.8_cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=7061&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/cppyy-feedstock?branchName=master&jobName=osx&configuration=osx_python3.8.____cpythonpython_implcpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/cppyy-feedstock?branchName=master&jobName=osx&configuration=osx_3.8_cpython" alt="variant">
                 </a>
               </td>
             </tr>
