@@ -5,7 +5,7 @@ Home: https://pypi.org/project/cppyy/
 
 Package license: BSD-3-Clause
 
-Feedstock license: BSD 3-Clause
+Feedstock license: BSD-3-Clause
 
 Summary: Python-C++ bindings interface based on Cling/LLVM
 
