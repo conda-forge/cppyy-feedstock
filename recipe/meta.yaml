@@ -1,19 +1,19 @@
 {% set name = "cppyy" %}
-{% set version = "1.6.2" %}
+{% set version = "1.8.1" %}
 
 package:
-  name: {{ name  }}
+  name: {{ name }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/c/cppyy/cppyy-{{ version   }}.tar.gz
-  sha256: d6d9090f9b1c8272f58b59b9d4098e3100b4c8f8386e1f98e80ef33d54acf912
+  url: https://pypi.io/packages/source/c/cppyy/cppyy-{{ version }}.tar.gz
+  sha256: 6cfef33397346f57e18a02e1694b3c45371dbd1297c4b8096623d07dbcc774cb
   patches:
     - 0001-dumb-setup.py.patch
     - add_default_paths_on_pypy.diff
 
 build:
-  number: 1
+  number: 0
   skip: true  # [win]
   script: {{ PYTHON }} -m pip install . --no-deps -vv
   detect_binary_files_with_prefix: false
