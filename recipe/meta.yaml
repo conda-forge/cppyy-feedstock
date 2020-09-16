@@ -24,12 +24,17 @@ requirements:
   host:
     - python
     - pip
-    - cppyy-backend ==1.13.1
+    # See the unpatched setup.py for supported versions
+    - cppyy-backend ==1.13.1  # [python_impl=="cpython"]
+    - cppyy-backend ==1.10.8  # [python_impl=="pypy"]
   run:
     - python
-    - cpycppyy ==1.11.3   # [python_impl=="cpython"]
-    - cppyy-backend ==1.13.1
-    - cppyy-cling ==6.21.2
+    # See the unpatched setup.py for supported versions
+    - cpycppyy ==1.11.3  # [python_impl=="cpython"]
+    - cppyy-backend ==1.13.1  # [python_impl=="cpython"]
+    - cppyy-cling ==6.21.2  # [python_impl=="cpython"]
+    - cppyy-backend ==1.10.8  # [python_impl=="pypy"]
+    - cppyy-cling ==6.18.2.7  # [python_impl=="pypy"]
 
 test:
   requires:
