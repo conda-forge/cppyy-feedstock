@@ -15,6 +15,9 @@ source:
 build:
   number: 0
   skip: true  # [win]
+  # Upstream does not properly support our version of PyPy. This should change
+  # beyond 1.8.3, see
+  # https://github.com/conda-forge/cppyy-feedstock/pull/30#issuecomment-693463465.
   skip: true  # [python_impl=="pypy"]
   script: {{ PYTHON }} -m pip install . --no-deps -vv
   detect_binary_files_with_prefix: false
