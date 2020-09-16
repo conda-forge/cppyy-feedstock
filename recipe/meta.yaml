@@ -24,12 +24,12 @@ requirements:
   host:
     - python
     - pip
-    - cppyy-backend ==1.10.8
+    - cppyy-backend ==1.13.1
   run:
     - python
-    - cpycppyy ==1.10.2   # [python_impl=="cpython"]
-    - cppyy-backend ==1.10.8
-    - cppyy-cling ==6.18.2.7
+    - cpycppyy ==1.11.3   # [python_impl=="cpython"]
+    - cppyy-backend ==1.13.1
+    - cppyy-cling ==6.21.2
 
 test:
   requires:
