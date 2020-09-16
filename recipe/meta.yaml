@@ -1,20 +1,24 @@
 {% set name = "cppyy" %}
-{% set version = "1.6.2" %}
+{% set version = "1.8.2" %}
 
 package:
-  name: {{ name  }}
+  name: {{ name }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/c/cppyy/cppyy-{{ version   }}.tar.gz
-  sha256: d6d9090f9b1c8272f58b59b9d4098e3100b4c8f8386e1f98e80ef33d54acf912
+  url: https://pypi.io/packages/source/c/cppyy/cppyy-{{ version }}.tar.gz
+  sha256: 2aa3990f0329b1e962162d4167469e13edc10c18b82593b2fd19cb75085e12e2
   patches:
     - 0001-dumb-setup.py.patch
     - add_default_paths_on_pypy.diff
 
 build:
-  number: 1
+  number: 0
   skip: true  # [win]
+  # Upstream does not properly support our version of PyPy. This should change
+  # beyond 1.8.3, see
+  # https://github.com/conda-forge/cppyy-feedstock/pull/30#issuecomment-693463465.
+  skip: true  # [python_impl=="pypy"]
   script: {{ PYTHON }} -m pip install . --no-deps -vv
   detect_binary_files_with_prefix: false
 
@@ -24,12 +28,11 @@ requirements:
   host:
     - python
     - pip
-    - cppyy-backend ==1.10.8
+    - cppyy-backend ==1.13.1
   run:
     - python
-    - cpycppyy ==1.10.2   # [python_impl=="cpython"]
-    - cppyy-backend ==1.10.8
-    - cppyy-cling ==6.18.2.7
+    - cpycppyy ==1.11.3  # [python_impl=="cpython"]
+    - cppyy-backend ==1.13.1
 
 test:
   requires:
