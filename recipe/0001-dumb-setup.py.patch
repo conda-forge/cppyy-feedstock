@@ -1,28 +1,22 @@
-From 4a491cbe4255d3796c63cd479e66dcccba8aabf8 Mon Sep 17 00:00:00 2001
+From c0c46654a22a61baf67068ae40e88c8333345459 Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?Julian=20R=C3=BCth?= <julian.rueth@fsfe.org>
-Date: Mon, 30 Mar 2020 21:35:11 +0200
-Subject: [PATCH] dumb setup
+Date: Wed, 16 Sep 2020 13:08:01 +0200
+Subject: [PATCH] dump setup
 
 ---
- setup.py | 115 +------------------------------------------------------
- 1 file changed, 1 insertion(+), 114 deletions(-)
+ setup.py | 85 +-------------------------------------------------------
+ 1 file changed, 1 insertion(+), 84 deletions(-)
 
 diff --git a/setup.py b/setup.py
-index df5fa6f..5bad758 100755
+index ef64d44..2294285 100755
 --- a/setup.py
 +++ b/setup.py
-@@ -1,42 +1,5 @@
+@@ -1,35 +1,5 @@
  import codecs, glob, os, sys, re
  from setuptools import setup, find_packages, Extension
 -from distutils import log
 -
--from setuptools.dist import Distribution
 -from setuptools.command.install import install as _install
--
--force_bdist = False
--if '--force-bdist' in sys.argv:
--    force_bdist = True
--    sys.argv.remove('--force-bdist')
 -
 -add_pkg = ['cppyy']
 -try:
@@ -31,33 +25,33 @@ index df5fa6f..5bad758 100755
 -    requirements = ['cppyy-backend']
 -    if version[0] == 5:
 -        if version[1] <= 9:
--            requirements = ['cppyy-cling<6.12', 'cppyy-backend<0.3']
+-            requirements = ['cppyy-backend<0.3', 'cppyy-cling<6.12']
 -            add_pkg += ['cppyy_compat']
 -        elif version[1] <= 10:
--            requirements = ['cppyy-cling<=6.15', 'cppyy-backend<0.4']
+-            requirements = ['cppyy-backend<0.4', 'cppyy-cling<=6.15']
 -    elif version[0] == 6:
 -        if version[1] <= 0:
--            requirements = ['cppyy-cling<=6.15', 'cppyy-backend<1.1']
+-            requirements = ['cppyy-backend<1.1', 'cppyy-cling<=6.15']
 -    elif version[0] == 7:
--        if version[1] <= 2:
--            requirements = ['cppyy-cling<=6.18.2.3', 'cppyy-backend<=1.10']
+-        if version[1] <= 3 and version[2] < 2:
+-            requirements = ['cppyy-backend<=1.10', 'cppyy-cling<=6.18.2.3']
 -        else:
--            requirements = ['cppyy-cling<=6.18.2.7', 'cppyy-backend<=1.10']
+-            requirements = ['cppyy-backend<=1.11', 'cppyy-cling<=6.20.4']
 -except ImportError:
 -    # CPython
--    requirements = ['cppyy-cling==6.18.2.7', 'cppyy-backend==1.10.8', 'CPyCppyy==1.10.2']
+-    requirements = ['CPyCppyy==1.11.3', 'cppyy-backend==1.13.1', 'cppyy-cling==6.21.2']
 -
 -setup_requirements = ['wheel']
 -if 'build' in sys.argv or 'install' in sys.argv:
 -    setup_requirements += requirements
--
+ 
  here = os.path.abspath(os.path.dirname(__file__))
  with codecs.open(os.path.join(here, 'README.rst'), encoding='utf-8') as f:
-     long_description = f.read()
-@@ -55,76 +18,6 @@ def find_version(*file_paths):
+@@ -48,54 +18,6 @@ def find_version(*file_paths):
+         return version_match.group(1)
      raise RuntimeError("Unable to find version string.")
  
- 
+-
 -#
 -# platform-dependent helpers
 -#
@@ -105,33 +99,10 @@ index df5fa6f..5bad758 100755
 -        'install': my_install }
 -
 -
--#
--# customized distribition to disable binaries
--#
--class MyDistribution(Distribution):
--    def run_commands(self):
--        # pip does not resolve dependencies before building binaries, so unless
--        # packages are installed one-by-one, on old install is used or the build
--        # will simply fail hard. The following is not completely quiet, but at
--        # least a lot less conspicuous.
--        if not is_manylinux() and not force_bdist:
--            disabled = set((
--                'bdist_wheel', 'bdist_egg', 'bdist_wininst', 'bdist_rpm'))
--            for cmd in self.commands:
--                if not cmd in disabled:
--                    self.run_command(cmd)
--                else:
--                    log.info('Command "%s" is disabled', cmd)
--                    cmd_obj = self.get_command_obj(cmd)
--                    cmd_obj.get_outputs = lambda: None
--        else:
--            return Distribution.run_commands(self)
--
--
  setup(
      name='cppyy',
      version=find_version('python', 'cppyy', '_version.py'),
-@@ -161,16 +54,10 @@ setup(
+@@ -132,15 +54,10 @@ setup(
          'Natural Language :: English'
      ],
  
@@ -144,11 +115,10 @@ index df5fa6f..5bad758 100755
 -    packages=find_packages('python', include=add_pkg),
 -
 -    cmdclass=cmdclass,
--    distclass=MyDistribution,
 +    packages=find_packages('python', include=['cppyy']),
  
      zip_safe=False,
  )
 -- 
-2.25.2
+2.28.0
 
