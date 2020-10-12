@@ -1,4 +1,4 @@
-From 0903552af1514117e783bc114baf14d25e0a88ba Mon Sep 17 00:00:00 2001
+From 347c33391da4f02441f267a8663229f1675b9031 Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?Julian=20R=C3=BCth?= <julian.rueth@fsfe.org>
 Date: Sat, 26 Sep 2020 05:10:50 +0200
 Subject: [PATCH] simplify setup.py
@@ -8,7 +8,7 @@ Subject: [PATCH] simplify setup.py
  1 file changed, 1 insertion(+), 84 deletions(-)
 
 diff --git a/setup.py b/setup.py
-index 2025431..2294285 100755
+index 65ede16..2294285 100755
 --- a/setup.py
 +++ b/setup.py
 @@ -1,35 +1,5 @@
@@ -39,7 +39,7 @@ index 2025431..2294285 100755
 -            requirements = ['cppyy-backend<=1.11', 'cppyy-cling<=6.20.4']
 -except ImportError:
 -    # CPython
--    requirements = ['CPyCppyy==1.11.4', 'cppyy-backend==1.14.0', 'cppyy-cling==6.21.3']
+-    requirements = ['CPyCppyy==1.11.5', 'cppyy-backend==1.14.1', 'cppyy-cling==6.21.4']
 -
 -setup_requirements = ['wheel']
 -if 'build' in sys.argv or 'install' in sys.argv:

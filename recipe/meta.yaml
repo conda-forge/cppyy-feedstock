@@ -1,5 +1,5 @@
 {% set name = "cppyy" %}
-{% set version = "1.8.3" %}
+{% set version = "1.8.4" %}
 
 package:
   name: {{ name }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/c/cppyy/cppyy-{{ version }}.tar.gz
-  sha256: 5d0d0533bc0ff3645cbd58a97d13ec3d284fb87d2183b6ba7d8852c5409b6546
+  sha256: 4c772db1716a104f58c406f5ad6b97704b044a6f0f52f358882bee6dfbaa3a41
   patches:
     - 0001-dumb-setup.py.patch
     - add_default_paths_on_pypy.diff
@@ -28,11 +28,11 @@ requirements:
   host:
     - python
     - pip
-    - cppyy-backend ==1.14.0
+    - cppyy-backend ==1.14.1
   run:
     - python
-    - cpycppyy ==1.11.4  # [python_impl=="cpython"]
-    - cppyy-backend ==1.14.0
+    - cpycppyy ==1.11.5  # [python_impl=="cpython"]
+    - cppyy-backend ==1.14.1
 
 test:
   requires:
