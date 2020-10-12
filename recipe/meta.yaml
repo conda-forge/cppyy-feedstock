@@ -28,11 +28,11 @@ requirements:
   host:
     - python
     - pip
-    - cppyy-backend ==1.14.0
+    - cppyy-backend ==1.14.1
   run:
     - python
-    - cpycppyy ==1.11.4  # [python_impl=="cpython"]
-    - cppyy-backend ==1.14.0
+    - cpycppyy ==1.11.5  # [python_impl=="cpython"]
+    - cppyy-backend ==1.14.1
 
 test:
   requires:
