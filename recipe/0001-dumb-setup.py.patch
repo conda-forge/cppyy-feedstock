@@ -1,14 +1,5 @@
-From bf30699300b9c7365ce3c940034f392fe3f38031 Mon Sep 17 00:00:00 2001
-From: =?UTF-8?q?Julian=20R=C3=BCth?= <julian.rueth@fsfe.org>
-Date: Mon, 23 Nov 2020 14:08:06 +0100
-Subject: [PATCH] remove upstream version checks
-
----
- setup.py | 83 +-------------------------------------------------------
- 1 file changed, 1 insertion(+), 82 deletions(-)
-
 diff --git a/setup.py b/setup.py
-index 0f96d43..16f13ba 100755
+index c14dc0d..16f13ba 100755
 --- a/setup.py
 +++ b/setup.py
 @@ -1,33 +1,5 @@
@@ -22,7 +13,7 @@ index 0f96d43..16f13ba 100755
 -try:
 -    import __pypy__, sys
 -    version = sys.pypy_version_info
--    requirements = ['cppyy-backend<1.15', 'cppyy-cling<6.22']
+-    requirements = ['cppyy-backend==1.14.2', 'cppyy-cling==6.21.5']
 -    if version[0] == 5:
 -        if version[1] <= 9:
 -            requirements = ['cppyy-backend<0.3', 'cppyy-cling<6.12']
@@ -37,7 +28,7 @@ index 0f96d43..16f13ba 100755
 -            requirements = ['cppyy-backend<=1.10', 'cppyy-cling<=6.18.2.3']
 -except ImportError:
 -    # CPython
--    requirements = ['CPyCppyy==1.12.1', 'cppyy-backend==1.14.1', 'cppyy-cling==6.21.4']
+-    requirements = ['CPyCppyy==1.12.2', 'cppyy-backend==1.14.2', 'cppyy-cling==6.21.5']
 -
 -setup_requirements = ['wheel']
 -if 'build' in sys.argv or 'install' in sys.argv:
@@ -45,23 +36,10 @@ index 0f96d43..16f13ba 100755
  
  here = os.path.abspath(os.path.dirname(__file__))
  with codecs.open(os.path.join(here, 'README.rst'), encoding='utf-8') as f:
-@@ -46,54 +18,6 @@ def find_version(*file_paths):
+@@ -46,41 +18,6 @@ def find_version(*file_paths):
          return version_match.group(1)
      raise RuntimeError("Unable to find version string.")
  
--
--#
--# platform-dependent helpers
--#
--def is_manylinux():
--    try:
--       for line in open('/etc/redhat-release').readlines():
--           if 'CentOS release 6.10 (Final)' in line:
--               return True
--    except (OSError, IOError):
--        pass
--    return False
--
 -
 -#
 -# customized commands
@@ -100,7 +78,7 @@ index 0f96d43..16f13ba 100755
  setup(
      name='cppyy',
      version=find_version('python', 'cppyy', '_version.py'),
-@@ -130,18 +54,13 @@ setup(
+@@ -117,18 +54,13 @@ setup(
          'Natural Language :: English'
      ],
  
@@ -120,6 +98,3 @@ index 0f96d43..16f13ba 100755
  
      zip_safe=False,
  )
--- 
-2.30.0
-

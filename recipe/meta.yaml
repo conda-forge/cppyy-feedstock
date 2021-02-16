@@ -1,5 +1,5 @@
 {% set name = "cppyy" %}
-{% set version = "1.9.2" %}
+{% set version = "1.9.3" %}
 
 package:
   name: {{ name }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/c/cppyy/cppyy-{{ version }}.tar.gz
-  sha256: 17086100b2e875a12b7cec8cac4964c96f9438febaaa47195f31ff4a4b23424f
+  sha256: 81118155d40b168be8a4770512b3ca796abcb351ec8f07d21c55b1188093cf78
   patches:
     - 0001-dumb-setup.py.patch
     - add_default_paths_on_pypy.diff
