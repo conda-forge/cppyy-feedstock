@@ -1,5 +1,5 @@
 {% set name = "cppyy" %}
-{% set version = "1.9.3" %}
+{% set version = "1.9.5" %}
 
 package:
   name: {{ name }}
@@ -7,13 +7,13 @@ package:
 
 source:
   url: https://pypi.io/packages/source/c/cppyy/cppyy-{{ version }}.tar.gz
-  sha256: 81118155d40b168be8a4770512b3ca796abcb351ec8f07d21c55b1188093cf78
+  sha256: efd54048972efdeb5abbe74f8a06648e33b8455903a5ac1688466d84fe3a411f
   patches:
     - 0001-dumb-setup.py.patch
     - add_default_paths_on_pypy.diff
 
 build:
-  number: 1
+  number: 0
   skip: true  # [win]
   # Upstream does not properly support our version of PyPy. This should change
   # beyond 1.8.3, see
