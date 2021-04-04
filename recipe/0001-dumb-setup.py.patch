@@ -1,5 +1,14 @@
+From d121b584a1fd3fd290aae9fea939da6486bcdeb5 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Julian=20R=C3=BCth?= <julian.rueth@fsfe.org>
+Date: Sun, 4 Apr 2021 18:20:49 +0200
+Subject: [PATCH] simplify setup
+
+---
+ setup.py | 70 +-------------------------------------------------------
+ 1 file changed, 1 insertion(+), 69 deletions(-)
+
 diff --git a/setup.py b/setup.py
-index c14dc0d..16f13ba 100755
+index ee36542..16f13ba 100755
 --- a/setup.py
 +++ b/setup.py
 @@ -1,33 +1,5 @@
@@ -13,7 +22,7 @@ index c14dc0d..16f13ba 100755
 -try:
 -    import __pypy__, sys
 -    version = sys.pypy_version_info
--    requirements = ['cppyy-backend==1.14.2', 'cppyy-cling==6.21.5']
+-    requirements = ['cppyy-backend==1.14.3', 'cppyy-cling==6.21.6']
 -    if version[0] == 5:
 -        if version[1] <= 9:
 -            requirements = ['cppyy-backend<0.3', 'cppyy-cling<6.12']
@@ -28,7 +37,7 @@ index c14dc0d..16f13ba 100755
 -            requirements = ['cppyy-backend<=1.10', 'cppyy-cling<=6.18.2.3']
 -except ImportError:
 -    # CPython
--    requirements = ['CPyCppyy==1.12.2', 'cppyy-backend==1.14.2', 'cppyy-cling==6.21.5']
+-    requirements = ['CPyCppyy==1.12.4', 'cppyy-backend==1.14.3', 'cppyy-cling==6.21.6']
 -
 -setup_requirements = ['wheel']
 -if 'build' in sys.argv or 'install' in sys.argv:
@@ -98,3 +107,6 @@ index c14dc0d..16f13ba 100755
  
      zip_safe=False,
  )
+-- 
+2.31.1
+
