@@ -1,0 +1,24 @@
+From 8ffb3b0e2fa47a0cbc53f9e74a11cd0efdf75adc Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Julian=20R=C3=BCth?= <julian.rueth@fsfe.org>
+Date: Tue, 22 Jun 2021 12:26:25 +0200
+Subject: [PATCH] do not rebuild allDict
+
+---
+ setup.py | 2 --
+ 1 file changed, 2 deletions(-)
+
+diff --git a/setup.py b/setup.py
+index f79fd49..9cdd42e 100755
+--- a/setup.py
++++ b/setup.py
+@@ -128,7 +128,5 @@ setup(
+     package_dir={'': 'python'},
+     packages=find_packages('python', include=add_pkg),
+ 
+-    cmdclass=cmdclass,
+-
+     zip_safe=False,
+ )
+-- 
+2.32.0
+
