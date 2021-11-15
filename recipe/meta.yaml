@@ -1,5 +1,5 @@
 {% set name = "cppyy" %}
-{% set version = "2.1.0" %}
+{% set version = "2.2.0" %}
 
 package:
   name: {{ name }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/c/cppyy/cppyy-{{ version }}.tar.gz
-  sha256: e5feb67fe6af2314da8ced934b2966ec3dd55a4649462b21607a2f51de1d0b27
+  sha256: f3cb7c246d005b7b0b2a8ffd73ea2cd632359b6c11647a1cc64b4bec657e3ee9
   patches:
     - add_default_paths_on_pypy.patch
     - alldict.patch
