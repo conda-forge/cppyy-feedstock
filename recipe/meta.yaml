@@ -13,7 +13,7 @@ source:
     - alldict.patch
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win]
   # Upstream does not properly support our version of PyPy. This should change
   # beyond 1.8.3, see
