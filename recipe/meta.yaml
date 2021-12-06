@@ -15,6 +15,8 @@ source:
 build:
   number: 0
   skip: true  # [win]
+  # cppyy is broken on ppc: https://github.com/conda-forge/cppyy-feedstock/issues/55
+  skip: true  # [ppc64le]
   # Upstream does not properly support our version of PyPy. This should change
   # beyond 1.8.3, see
   # https://github.com/conda-forge/cppyy-feedstock/pull/30#issuecomment-693463465.
