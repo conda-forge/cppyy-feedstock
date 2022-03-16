@@ -1,5 +1,5 @@
 {% set name = "cppyy" %}
-{% set version = "2.2.0" %}
+{% set version = "2.3.0" %}
 
 package:
   name: {{ name }}
@@ -7,13 +7,13 @@ package:
 
 source:
   url: https://pypi.io/packages/source/c/cppyy/cppyy-{{ version }}.tar.gz
-  sha256: f3cb7c246d005b7b0b2a8ffd73ea2cd632359b6c11647a1cc64b4bec657e3ee9
+  sha256: 570f39be98f6614b4a5678140c7c5266279f7ceecb2dd0cbb195738874049971
   patches:
     - add_default_paths_on_pypy.patch
     - alldict.patch
 
 build:
-  number: 1
+  number: 0
   skip: true  # [win]
   # cppyy is broken on ppc: https://github.com/conda-forge/cppyy-feedstock/issues/55
   skip: true  # [ppc64le]
@@ -33,13 +33,13 @@ requirements:
     - python
     - pip
     # cppyy-cling, cppyy-backend, cpycppyy and cppyy are essentially a single package, so we always pin exactly between these.
-    - cppyy-backend ==1.14.7
+    - cppyy-backend ==1.14.8
   run:
     - python
     # cppyy-cling, cppyy-backend, cpycppyy and cppyy are essentially a single package, so we always pin exactly between these.
-    - cpycppyy ==1.12.8  # [python_impl=="cpython"]
+    - cpycppyy ==1.12.9  # [python_impl=="cpython"]
     # cppyy-cling, cppyy-backend, cpycppyy and cppyy are essentially a single package, so we always pin exactly between these.
-    - cppyy-backend ==1.14.7
+    - cppyy-backend ==1.14.8
 
 test:
   requires:
