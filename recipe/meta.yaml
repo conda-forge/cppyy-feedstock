@@ -37,7 +37,7 @@ requirements:
   run:
     - python
     # cppyy-cling, cppyy-backend, cpycppyy and cppyy are essentially a single package, so we always pin exactly between these.
-    - cpycppyy ==1.12.9  # [python_impl=="cpython"]
+    - cpycppyy ==1.12.10  # [python_impl=="cpython"]
     # cppyy-cling, cppyy-backend, cpycppyy and cppyy are essentially a single package, so we always pin exactly between these.
     - cppyy-backend ==1.14.8
 
