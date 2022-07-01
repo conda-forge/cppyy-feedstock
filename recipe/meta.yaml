@@ -1,5 +1,5 @@
 {% set name = "cppyy" %}
-{% set version = "2.3.1" %}
+{% set version = "2.4.0" %}
 
 package:
   name: {{ name }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/c/cppyy/cppyy-{{ version }}.tar.gz
-  sha256: 811c1c45d912c9368128c3f84cdf6d9235ce09761fc53552f92a099d3f9669c6
+  sha256: 03bc66b0938c832507b4e76f55b64a542f981531f53955f70f1c595fc3333f2c
   patches:
     - add_default_paths_on_pypy.patch
     - alldict.patch
@@ -17,10 +17,8 @@ build:
   skip: true  # [win]
   # cppyy is broken on ppc: https://github.com/conda-forge/cppyy-feedstock/issues/55
   skip: true  # [ppc64le]
-  # Upstream does not properly support our version of PyPy. This should change
-  # beyond 1.8.3, see
-  # https://github.com/conda-forge/cppyy-feedstock/pull/30#issuecomment-693463465.
-  skip: true  # [python_impl=="pypy"]
+  # compiler flags set by cppyy-cling do not work on aarch64, https://github.com/conda-forge/cppyy-cling-feedstock/pull/52
+  skip: true  # [aarch64]
   script: {{ PYTHON }} -m pip install . --no-deps -vv
   detect_binary_files_with_prefix: false
 
@@ -33,13 +31,13 @@ requirements:
     - python
     - pip
     # cppyy-cling, cppyy-backend, cpycppyy and cppyy are essentially a single package, so we always pin exactly between these.
-    - cppyy-backend ==1.14.8
+    - cppyy-backend ==1.14.9
   run:
     - python
     # cppyy-cling, cppyy-backend, cpycppyy and cppyy are essentially a single package, so we always pin exactly between these.
-    - cpycppyy ==1.12.10  # [python_impl=="cpython"]
+    - cpycppyy ==1.12.11  # [python_impl=="cpython"]
     # cppyy-cling, cppyy-backend, cpycppyy and cppyy are essentially a single package, so we always pin exactly between these.
-    - cppyy-backend ==1.14.8
+    - cppyy-backend ==1.14.9
 
 test:
   requires:
