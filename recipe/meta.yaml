@@ -17,6 +17,8 @@ build:
   skip: true  # [win]
   # cppyy is broken on ppc: https://github.com/conda-forge/cppyy-feedstock/issues/55
   skip: true  # [ppc64le]
+  # compiler flags set by cppyy-cling do not work on aarch64, https://github.com/conda-forge/cppyy-cling-feedstock/pull/52
+  skip: true  # [aarch64]
   script: {{ PYTHON }} -m pip install . --no-deps -vv
   detect_binary_files_with_prefix: false
 
