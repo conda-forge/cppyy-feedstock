@@ -7,14 +7,12 @@ channel_targets:
 cxx_compiler:
 - clangxx
 cxx_compiler_version:
-- '13'
+- '14'
 gmp:
 - '6'
 macos_machine:
 - arm64-apple-darwin20.0.0
 pin_run_as_build:
-  gmp:
-    max_pin: x
   python:
     min_pin: x.x
     max_pin: x.x
