@@ -13,7 +13,7 @@ source:
     - alldict.patch
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win]
   # cppyy is broken on ppc: https://github.com/conda-forge/cppyy-feedstock/issues/55
   skip: true  # [ppc64le]
@@ -38,6 +38,8 @@ requirements:
     - cpycppyy ==1.12.12  # [python_impl=="cpython"]
     # cppyy-cling, cppyy-backend, cpycppyy and cppyy are essentially a single package, so we always pin exactly between these.
     - cppyy-backend ==1.14.10
+    # See https://github.com/conda-forge/conda-forge-repodata-patches-feedstock/pull/414. Can be dropped with cppyy 3.
+    - libcxx <15  # [osx]
 
 test:
   requires:
