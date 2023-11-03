@@ -13,7 +13,7 @@ source:
     - alldict.patch
 
 build:
-  number: 1
+  number: 2
   skip: true  # [win]
   # cppyy is broken on ppc: https://github.com/conda-forge/cppyy-feedstock/issues/55
   skip: true  # [ppc64le]
