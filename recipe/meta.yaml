@@ -1,5 +1,5 @@
 {% set name = "cppyy" %}
-{% set version = "2.4.2" %}
+{% set version = "3.1.2" %}
 
 package:
   name: {{ name }}
@@ -7,13 +7,13 @@ package:
 
 source:
   url: https://pypi.io/packages/source/c/cppyy/cppyy-{{ version }}.tar.gz
-  sha256: 468a8877afe724b9bf5e83704513d64be9cf2f91183c83704d3e2118626012d3
+  sha256: 7937d184af02e1510f44d5655e0bcc3c6a7888ef5b3f06c3dd09ba93d1c1f19b
   patches:
     - add_default_paths_on_pypy.patch
     - alldict.patch
 
 build:
-  number: 2
+  number: 0
   skip: true  # [win]
   # cppyy is broken on ppc: https://github.com/conda-forge/cppyy-feedstock/issues/55
   skip: true  # [ppc64le]
