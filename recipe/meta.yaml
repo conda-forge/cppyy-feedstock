@@ -15,8 +15,6 @@ source:
 build:
   number: 0
   skip: true  # [win]
-  # cppyy is broken on ppc: https://github.com/conda-forge/cppyy-feedstock/issues/55
-  skip: true  # [ppc64le]
   # compiler flags set by cppyy-cling do not work on aarch64, https://github.com/conda-forge/cppyy-cling-feedstock/pull/52
   skip: true  # [aarch64]
   script: {{ PYTHON }} -m pip install . --no-deps -vv
@@ -31,15 +29,19 @@ requirements:
     - python
     - pip
     # cppyy-cling, cppyy-backend, cpycppyy and cppyy are essentially a single package, so we always pin exactly between these.
-    - cppyy-backend ==1.14.10
+    - cpycppyy ==1.12.13  # [python_impl=="cpython"]
+    # cppyy-cling, cppyy-backend, cpycppyy and cppyy are essentially a single package, so we always pin exactly between these.
+    - cppyy-backend ==1.14.11
+    # cppyy-cling, cppyy-backend, cpycppyy and cppyy are essentially a single package, so we always pin exactly between these.
+    - cppyy-cling ==6.28.0
   run:
     - python
     # cppyy-cling, cppyy-backend, cpycppyy and cppyy are essentially a single package, so we always pin exactly between these.
-    - cpycppyy ==1.12.12  # [python_impl=="cpython"]
+    - cpycppyy ==1.12.13  # [python_impl=="cpython"]
     # cppyy-cling, cppyy-backend, cpycppyy and cppyy are essentially a single package, so we always pin exactly between these.
-    - cppyy-backend ==1.14.10
-    # See https://github.com/conda-forge/conda-forge-repodata-patches-feedstock/pull/414. Can be dropped with cppyy 3.
-    - libcxx <15  # [osx]
+    - cppyy-backend ==1.14.11
+    # cppyy-cling, cppyy-backend, cpycppyy and cppyy are essentially a single package, so we always pin exactly between these.
+    - cppyy-cling ==6.28.0
 
 test:
   requires:
