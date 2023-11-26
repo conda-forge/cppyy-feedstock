@@ -17,6 +17,10 @@ build:
   skip: true  # [win]
   # compiler flags set by cppyy-cling do not work on aarch64, https://github.com/conda-forge/cppyy-cling-feedstock/pull/52
   skip: true  # [aarch64]
+  # ppc64 build fails with
+  # "IncrementalExecutor::executeFunction: symbol 'DW.ref.__gxx_personality_v0' unresolved while linking [cling interface function]!"
+  # It's not clear what's the problem.
+  skip: true  # [ppc64le]
   # cross-python does not support pypy yet
   skip: true  # [build_platform != target_platform and python_impl == "pypy"]
   script: {{ PYTHON }} -m pip install . --no-deps -vv
