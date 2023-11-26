@@ -17,6 +17,8 @@ build:
   skip: true  # [win]
   # compiler flags set by cppyy-cling do not work on aarch64, https://github.com/conda-forge/cppyy-cling-feedstock/pull/52
   skip: true  # [aarch64]
+  # cross-python does not support pypy yet
+  skip: true  # [build_platform != target_platform and python_impl == "pypy"]
   script: {{ PYTHON }} -m pip install . --no-deps -vv
   detect_binary_files_with_prefix: false
 
