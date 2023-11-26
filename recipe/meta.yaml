@@ -1,5 +1,5 @@
 {% set name = "cppyy" %}
-{% set version = "2.4.2" %}
+{% set version = "3.0.0" %}
 
 package:
   name: {{ name }}
@@ -7,18 +7,22 @@ package:
 
 source:
   url: https://pypi.io/packages/source/c/cppyy/cppyy-{{ version }}.tar.gz
-  sha256: 468a8877afe724b9bf5e83704513d64be9cf2f91183c83704d3e2118626012d3
+  sha256: 9c7c1c113d771488cee0bf63f26d2bbf4f42de731eb63776e007cb0d9e23d3d8
   patches:
     - add_default_paths_on_pypy.patch
     - alldict.patch
 
 build:
-  number: 2
+  number: 0
   skip: true  # [win]
-  # cppyy is broken on ppc: https://github.com/conda-forge/cppyy-feedstock/issues/55
-  skip: true  # [ppc64le]
   # compiler flags set by cppyy-cling do not work on aarch64, https://github.com/conda-forge/cppyy-cling-feedstock/pull/52
   skip: true  # [aarch64]
+  # ppc64 build fails with
+  # "IncrementalExecutor::executeFunction: symbol 'DW.ref.__gxx_personality_v0' unresolved while linking [cling interface function]!"
+  # It's not clear what's the problem.
+  skip: true  # [ppc64le]
+  # cross-python does not support pypy yet
+  skip: true  # [build_platform != target_platform and python_impl == "pypy"]
   script: {{ PYTHON }} -m pip install . --no-deps -vv
   detect_binary_files_with_prefix: false
 
@@ -31,15 +35,19 @@ requirements:
     - python
     - pip
     # cppyy-cling, cppyy-backend, cpycppyy and cppyy are essentially a single package, so we always pin exactly between these.
-    - cppyy-backend ==1.14.10
+    - cpycppyy ==1.12.13  # [python_impl=="cpython"]
+    # cppyy-cling, cppyy-backend, cpycppyy and cppyy are essentially a single package, so we always pin exactly between these.
+    - cppyy-backend ==1.14.11
+    # cppyy-cling, cppyy-backend, cpycppyy and cppyy are essentially a single package, so we always pin exactly between these.
+    - cppyy-cling ==6.28.0
   run:
     - python
     # cppyy-cling, cppyy-backend, cpycppyy and cppyy are essentially a single package, so we always pin exactly between these.
-    - cpycppyy ==1.12.12  # [python_impl=="cpython"]
+    - cpycppyy ==1.12.13  # [python_impl=="cpython"]
     # cppyy-cling, cppyy-backend, cpycppyy and cppyy are essentially a single package, so we always pin exactly between these.
-    - cppyy-backend ==1.14.10
-    # See https://github.com/conda-forge/conda-forge-repodata-patches-feedstock/pull/414. Can be dropped with cppyy 3.
-    - libcxx <15  # [osx]
+    - cppyy-backend ==1.14.11
+    # cppyy-cling, cppyy-backend, cpycppyy and cppyy are essentially a single package, so we always pin exactly between these.
+    - cppyy-cling ==6.28.0
 
 test:
   requires:

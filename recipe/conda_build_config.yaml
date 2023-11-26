@@ -1,6 +1,0 @@
-# pin clang<15 because cppyy (and cling) need an old enough libcxx, see
-# https://github.com/conda-forge/cppyy-feedstock/blob/main/recipe/meta.yaml
-c_compiler_version:        # [osx]
-  - 14                     # [osx]
-cxx_compiler_version:      # [osx]
-  - 14                     # [osx]
