@@ -1,5 +1,5 @@
 {% set name = "cppyy" %}
-{% set version = "3.0.0" %}
+{% set version = "3.1.2" %}
 
 package:
   name: {{ name }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/c/cppyy/cppyy-{{ version }}.tar.gz
-  sha256: 9c7c1c113d771488cee0bf63f26d2bbf4f42de731eb63776e007cb0d9e23d3d8
+  sha256: 7937d184af02e1510f44d5655e0bcc3c6a7888ef5b3f06c3dd09ba93d1c1f19b
   patches:
     - add_default_paths_on_pypy.patch
     - alldict.patch
@@ -35,19 +35,19 @@ requirements:
     - python
     - pip
     # cppyy-cling, cppyy-backend, cpycppyy and cppyy are essentially a single package, so we always pin exactly between these.
-    - cpycppyy ==1.12.13  # [python_impl=="cpython"]
+    - cpycppyy ==1.12.16  # [python_impl=="cpython"]
     # cppyy-cling, cppyy-backend, cpycppyy and cppyy are essentially a single package, so we always pin exactly between these.
-    - cppyy-backend ==1.14.11
+    - cppyy-backend ==1.15.2
     # cppyy-cling, cppyy-backend, cpycppyy and cppyy are essentially a single package, so we always pin exactly between these.
-    - cppyy-cling ==6.28.0
+    - cppyy-cling ==6.30.0
   run:
     - python
     # cppyy-cling, cppyy-backend, cpycppyy and cppyy are essentially a single package, so we always pin exactly between these.
-    - cpycppyy ==1.12.13  # [python_impl=="cpython"]
+    - cpycppyy ==1.12.16  # [python_impl=="cpython"]
     # cppyy-cling, cppyy-backend, cpycppyy and cppyy are essentially a single package, so we always pin exactly between these.
-    - cppyy-backend ==1.14.11
+    - cppyy-backend ==1.15.2
     # cppyy-cling, cppyy-backend, cpycppyy and cppyy are essentially a single package, so we always pin exactly between these.
-    - cppyy-cling ==6.28.0
+    - cppyy-cling ==6.30.0
 
 test:
   requires:
