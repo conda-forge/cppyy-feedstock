@@ -13,7 +13,7 @@ source:
     - alldict.patch
 
 build:
-  number: 1
+  number: 2
   skip: true  # [win]
   # compiler flags set by cppyy-cling do not work on aarch64, https://github.com/conda-forge/cppyy-cling-feedstock/pull/52
   skip: true  # [aarch64]
@@ -30,8 +30,6 @@ requirements:
   build:
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
-    - python  # [build_platform != target_platform]
-    - cross-python_{{ target_platform }}  # [build_platform != target_platform]
     - {{ compiler('cxx') }}
   host:
     - python
