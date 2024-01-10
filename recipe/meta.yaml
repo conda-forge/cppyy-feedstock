@@ -13,7 +13,7 @@ source:
     - alldict.patch
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win]
   # compiler flags set by cppyy-cling do not work on aarch64, https://github.com/conda-forge/cppyy-cling-feedstock/pull/52
   skip: true  # [aarch64]
