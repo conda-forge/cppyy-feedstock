@@ -1,19 +1,19 @@
 {% set name = "cppyy" %}
-{% set version = "3.1.2" %}
+{% set version = "3.5.0" %}
 
 package:
   name: {{ name }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/c/cppyy/cppyy-{{ version }}.tar.gz
-  sha256: 7937d184af02e1510f44d5655e0bcc3c6a7888ef5b3f06c3dd09ba93d1c1f19b
+  url: https://pypi.org/packages/source/c/cppyy/cppyy-{{ version }}.tar.gz
+  sha256: b9cfd48bd0c6e0c7399a82cca2105d7d90699adb3083904aaf30bf3632224e79
   patches:
     - add_default_paths_on_pypy.patch
     - alldict.patch
 
 build:
-  number: 2
+  number: 0
   skip: true  # [win]
   # compiler flags set by cppyy-cling do not work on aarch64, https://github.com/conda-forge/cppyy-cling-feedstock/pull/52
   skip: true  # [aarch64]
@@ -31,6 +31,7 @@ requirements:
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - {{ compiler('cxx') }}
+    - {{ stdlib("c") }}
   host:
     - python
     - pip
