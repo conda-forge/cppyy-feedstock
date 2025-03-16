@@ -67,7 +67,7 @@ about:
     Python from C++, designed for large scale programs in high performance
     computing that use modern C++. 
   doc_url: http://cppyy.readthedocs.io/
-  dev_url: https://bitbucket.org/wlav/cppyy/src
+  dev_url: https://github.com/wlav/cppyy
 
 extra:
   recipe-maintainers:
