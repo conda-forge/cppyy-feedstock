@@ -9,7 +9,7 @@ Package license: BSD-3-Clause
 
 Summary: Python-C++ bindings interface based on Cling/LLVM
 
-Development: https://bitbucket.org/wlav/cppyy/src
+Development: https://github.com/wlav/cppyy
 
 Documentation: http://cppyy.readthedocs.io/
 
