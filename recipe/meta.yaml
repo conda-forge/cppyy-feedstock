@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/c/cppyy/cppyy-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/c/cppyy/cppyy-{{ version }}.tar.gz
   sha256: 7937d184af02e1510f44d5655e0bcc3c6a7888ef5b3f06c3dd09ba93d1c1f19b
   patches:
     - add_default_paths_on_pypy.patch
