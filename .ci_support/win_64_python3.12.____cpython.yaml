@@ -1,17 +1,11 @@
 c_stdlib:
-- sysroot
-c_stdlib_version:
-- '2.17'
+- vs
 channel_sources:
 - conda-forge
 channel_targets:
 - conda-forge main
 cxx_compiler:
-- gxx
-cxx_compiler_version:
-- '14'
-docker_image:
-- quay.io/condaforge/linux-anvil-x86_64:alma9
+- vs2022
 pin_run_as_build:
   python:
     min_pin: x.x
@@ -21,4 +15,4 @@ python:
 python_impl:
 - cpython
 target_platform:
-- linux-64
+- win-64
