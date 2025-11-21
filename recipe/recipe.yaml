@@ -63,9 +63,9 @@ tests:
       run:
         - gmp
     script:
-      - $PYTHON -c 'import cppyy;V = cppyy.gbl.std.vector[int]();V.push_back(1)'
-      - $PYTHON -c 'import cppyy;cppyy.load_library("gmp")'
-      - $PYTHON -c 'import cppyy;cppyy.include("gmp.h")'
+      - python -c 'import cppyy;V = cppyy.gbl.std.vector[int]();V.push_back(1)'
+      - python -c 'import cppyy;cppyy.load_library("gmp")'
+      - python -c 'import cppyy;cppyy.include("gmp.h")'
 
 about:
   license: BSD-3-Clause
