@@ -9,7 +9,6 @@ source:
   url: https://pypi.org/packages/source/c/cppyy/cppyy-{{ version }}.tar.gz
   sha256: 7937d184af02e1510f44d5655e0bcc3c6a7888ef5b3f06c3dd09ba93d1c1f19b
   patches:
-    - add_default_paths_on_pypy.patch
     - alldict.patch
 
 build:
@@ -21,8 +20,6 @@ build:
   # "IncrementalExecutor::executeFunction: symbol 'DW.ref.__gxx_personality_v0' unresolved while linking [cling interface function]!"
   # It's not clear what's the problem.
   skip: true  # [ppc64le]
-  # cross-python does not support pypy yet
-  skip: true  # [build_platform != target_platform and python_impl == "pypy"]
   script: {{ PYTHON }} -m pip install . --no-deps -vv
   detect_binary_files_with_prefix: false
 
