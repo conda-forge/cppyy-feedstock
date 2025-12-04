@@ -22,6 +22,8 @@ build:
     - ppc64le
     # compiler flags set by cppyy-cling do not work on aarch64, https://github.com/conda-forge/cppyy-cling-feedstock/pull/52
     - aarch64
+    # cppyy-cling is not available on Windows
+    - win
   script: ${{ PYTHON }} -m pip install . --no-deps -vv
   prefix_detection:
     ignore_binary_files: false
