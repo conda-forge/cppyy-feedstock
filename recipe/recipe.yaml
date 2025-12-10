@@ -1,7 +1,7 @@
 schema_version: 1
 
 context:
-  version: 3.1.2
+  version: "3.5.0"
 
 package:
   name: cppyy
@@ -9,12 +9,12 @@ package:
 
 source:
   url: https://pypi.org/packages/source/c/cppyy/cppyy-${{ version }}.tar.gz
-  sha256: 7937d184af02e1510f44d5655e0bcc3c6a7888ef5b3f06c3dd09ba93d1c1f19b
+  sha256: b9cfd48bd0c6e0c7399a82cca2105d7d90699adb3083904aaf30bf3632224e79
   patches:
     - alldict.patch
 
 build:
-  number: 5
+  number: 0
   skip:
     # ppc64 build fails with
     # "IncrementalExecutor::executeFunction: symbol 'DW.ref.__gxx_personality_v0' unresolved while linking [cling interface function]!"
