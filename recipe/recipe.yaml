@@ -78,7 +78,7 @@ about:
     Python from C++, designed for large scale programs in high performance
     computing that use modern C++.
   homepage: https://pypi.org/project/cppyy/
-  repository: https://bitbucket.org/wlav/cppyy/src
+  repository: https://github.com/wlav/cppyy
   documentation: http://cppyy.readthedocs.io/
 
 extra:
