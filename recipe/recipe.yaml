@@ -14,14 +14,8 @@ source:
     - 0001-do-not-rebuild-allDict.patch
 
 build:
-  number: 0
+  number: 1
   skip:
-    # ppc64 build fails with
-    # "IncrementalExecutor::executeFunction: symbol 'DW.ref.__gxx_personality_v0' unresolved while linking [cling interface function]!"
-    # It's not clear what's the problem.
-    - ppc64le
-    # compiler flags set by cppyy-cling do not work on aarch64, https://github.com/conda-forge/cppyy-cling-feedstock/pull/52
-    - aarch64
     # cppyy-cling is not available on Windows
     - win
   script: ${{ PYTHON }} -m pip install . --no-deps -vv
