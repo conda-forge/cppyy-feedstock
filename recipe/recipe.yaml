@@ -14,7 +14,7 @@ source:
     - 0001-do-not-rebuild-allDict.patch
 
 build:
-  number: 0
+  number: 1
   skip:
     # ppc64 build fails with
     # "IncrementalExecutor::executeFunction: symbol 'DW.ref.__gxx_personality_v0' unresolved while linking [cling interface function]!"
