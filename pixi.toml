@@ -74,6 +74,15 @@ description = "Debug cppyy-feedstock with variant linux_64_python3.14.____cp314 
 [feature.build.tasks."inspect-linux_64_python3.14.____cp314"]
 cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/linux_64_python3.14.____cp314.yaml"
 description = "List contents of cppyy-feedstock packages built for variant linux_64_python3.14.____cp314"
+[feature.build.tasks."build-linux_64_python3.14.____cp314t"]
+cmd = "rattler-build build --recipe recipe -m .ci_support/linux_64_python3.14.____cp314t.yaml --target-platform linux-64"
+description = "Build cppyy-feedstock with variant linux_64_python3.14.____cp314t directly (without setup scripts)"
+[feature.build.tasks."debug-linux_64_python3.14.____cp314t"]
+cmd = "rattler-build debug setup --recipe recipe -m .ci_support/linux_64_python3.14.____cp314t.yaml --target-platform linux-64"
+description = "Debug cppyy-feedstock with variant linux_64_python3.14.____cp314t directly (without setup scripts)"
+[feature.build.tasks."inspect-linux_64_python3.14.____cp314t"]
+cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/linux_64_python3.14.____cp314t.yaml"
+description = "List contents of cppyy-feedstock packages built for variant linux_64_python3.14.____cp314t"
 [feature.build.tasks."build-linux_64_python3.15.____cp315"]
 cmd = "rattler-build build --recipe recipe -m .ci_support/linux_64_python3.15.____cp315.yaml --target-platform linux-64"
 description = "Build cppyy-feedstock with variant linux_64_python3.15.____cp315 directly (without setup scripts)"
@@ -119,6 +128,15 @@ description = "Debug cppyy-feedstock with variant osx_64_python3.14.____cp314 di
 [feature.build.tasks."inspect-osx_64_python3.14.____cp314"]
 cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/osx_64_python3.14.____cp314.yaml"
 description = "List contents of cppyy-feedstock packages built for variant osx_64_python3.14.____cp314"
+[feature.build.tasks."build-osx_64_python3.14.____cp314t"]
+cmd = "rattler-build build --recipe recipe -m .ci_support/osx_64_python3.14.____cp314t.yaml --target-platform osx-64"
+description = "Build cppyy-feedstock with variant osx_64_python3.14.____cp314t directly (without setup scripts)"
+[feature.build.tasks."debug-osx_64_python3.14.____cp314t"]
+cmd = "rattler-build debug setup --recipe recipe -m .ci_support/osx_64_python3.14.____cp314t.yaml --target-platform osx-64"
+description = "Debug cppyy-feedstock with variant osx_64_python3.14.____cp314t directly (without setup scripts)"
+[feature.build.tasks."inspect-osx_64_python3.14.____cp314t"]
+cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/osx_64_python3.14.____cp314t.yaml"
+description = "List contents of cppyy-feedstock packages built for variant osx_64_python3.14.____cp314t"
 [feature.build.tasks."build-osx_64_python3.15.____cp315"]
 cmd = "rattler-build build --recipe recipe -m .ci_support/osx_64_python3.15.____cp315.yaml --target-platform osx-64"
 description = "Build cppyy-feedstock with variant osx_64_python3.15.____cp315 directly (without setup scripts)"
@@ -164,6 +182,15 @@ description = "Debug cppyy-feedstock with variant osx_arm64_python3.14.____cp314
 [feature.build.tasks."inspect-osx_arm64_python3.14.____cp314"]
 cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/osx_arm64_python3.14.____cp314.yaml"
 description = "List contents of cppyy-feedstock packages built for variant osx_arm64_python3.14.____cp314"
+[feature.build.tasks."build-osx_arm64_python3.14.____cp314t"]
+cmd = "rattler-build build --recipe recipe -m .ci_support/osx_arm64_python3.14.____cp314t.yaml --target-platform osx-arm64"
+description = "Build cppyy-feedstock with variant osx_arm64_python3.14.____cp314t directly (without setup scripts)"
+[feature.build.tasks."debug-osx_arm64_python3.14.____cp314t"]
+cmd = "rattler-build debug setup --recipe recipe -m .ci_support/osx_arm64_python3.14.____cp314t.yaml --target-platform osx-arm64"
+description = "Debug cppyy-feedstock with variant osx_arm64_python3.14.____cp314t directly (without setup scripts)"
+[feature.build.tasks."inspect-osx_arm64_python3.14.____cp314t"]
+cmd = "inspect_artifacts --recipe-dir recipe -m .ci_support/osx_arm64_python3.14.____cp314t.yaml"
+description = "List contents of cppyy-feedstock packages built for variant osx_arm64_python3.14.____cp314t"
 [feature.build.tasks."build-osx_arm64_python3.15.____cp315"]
 cmd = "rattler-build build --recipe recipe -m .ci_support/osx_arm64_python3.15.____cp315.yaml --target-platform osx-arm64"
 description = "Build cppyy-feedstock with variant osx_arm64_python3.15.____cp315 directly (without setup scripts)"
